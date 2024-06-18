@@ -1,25 +1,21 @@
+import React from "react";
+
 export function Card({
-  className,
   title,
   children,
-  href,
+  className,
 }: {
+  title: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
-  title: string;
-  children: React.ReactNode;
-  href: string;
 }): JSX.Element {
+  const cardClasses = `border border-gray-300 p-6 bg-white rounded-xl bg-[#ededed] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out ${className}`;
   return (
-    <a
-      className={className}
-      href={`${href}?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo"`}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <h2>
-        {title} <span>-&gt;</span>
-      </h2>
-      <p>{children}</p>
-    </a>
+    <div className={cardClasses}>
+      <h1 className="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-4 mb-4">
+        {title}
+      </h1>
+      <div className="text-gray-700">{children}</div>
+    </div>
   );
 }
