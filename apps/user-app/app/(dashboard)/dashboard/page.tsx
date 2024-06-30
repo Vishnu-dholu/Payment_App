@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function () {
   return (
     <main className="flex flex-1 flex-col lg:flex-row justify-center items-center bg-gray-100 p-6 lg:p-12 relative">
@@ -19,7 +21,7 @@ export default function () {
         </button>
       </div>
       <div className="absolute bottom-16 lg:bottom-auto lg:top-1/2 lg:transform lg:-translate-y-1/2 right-10 lg:right-20 z-10 w-full max-w-sm md:max-w-md lg:max-w-xl lg:ml-12">
-        <img
+        <Image
           src="/home.jpg"
           alt="Group of friends"
           width={600}

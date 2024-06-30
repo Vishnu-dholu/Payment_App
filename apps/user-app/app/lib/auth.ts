@@ -7,6 +7,8 @@ import { JWT } from "next-auth/jwt";
 import { DefaultSession } from "next-auth";
 import NextAuth from "next-auth/next";
 
+const JWT_SECRET = process.env.JWT_SECRET || "";
+
 declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
@@ -89,7 +91,7 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/signin",
   },
-  secret: process.env.JWT_SECRET || "secret",
+  secret: JWT_SECRET,
   callbacks: {
     async session({ token, session }: { token: JWT; session: Session }) {
       if (session.user) {

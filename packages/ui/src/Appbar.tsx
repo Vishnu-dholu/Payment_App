@@ -14,7 +14,7 @@ export const Appbar = ({ user, onSignin, onSignout }: AppbarProps) => {
   const router = useRouter();
 
   const handleLogout = () => {
-    user ? onSignout : onSignin;
+    user ? onSignout() : onSignin();
     router.push("/auth/signin");
   };
 

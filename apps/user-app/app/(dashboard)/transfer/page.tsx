@@ -1,5 +1,5 @@
 import prisma from "@repo/db/client";
-import { AddMoney } from "../../../components/AddMoneyCard";
+import { AddMoneyCard } from "../../../components/AddMoneyCard";
 import { BalanceCard } from "../../../components/BalanceCard";
 import { OnRampTransactions } from "../../../components/OnRampTransaction";
 import { getServerSession } from "next-auth";
@@ -25,12 +25,14 @@ async function getOnRampTransactions() {
       userId: Number(session?.user?.id),
     },
   });
-  return txns.map((t) => ({
-    time: t.startTime,
-    amount: t.amount,
-    status: t.status,
-    provider: t.provider,
-  }));
+  return txns.map(
+    (t: { startTime: any; amount: any; status: any; provider: any }) => ({
+      time: t.startTime,
+      amount: t.amount,
+      status: t.status,
+      provider: t.provider,
+    })
+  );
 }
 
 export default async function () {
@@ -44,7 +46,7 @@ export default async function () {
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
         <div>
-          <AddMoney />
+          <AddMoneyCard />
         </div>
         <div>
           <BalanceCard amount={balance.amount} locked={balance.locked} />

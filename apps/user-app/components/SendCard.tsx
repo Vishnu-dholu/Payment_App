@@ -7,6 +7,7 @@ import { TextInput } from "@repo/ui/textinput";
 import { useState } from "react";
 import { p2pTransfer } from "../app/lib/actions/p2pTransfer";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export function SendCard() {
   const [number, setNumber] = useState("");
@@ -30,7 +31,12 @@ export function SendCard() {
           <Card
             title={
               <div className="flex justify-center">
-                <img src="/accept.png" className="w-8 h-8 mr-2" />
+                <Image
+                  src="/accept.png"
+                  alt="Description"
+                  width={500}
+                  height={300}
+                />
                 <span className="text-green-500">Payment Successful</span>
               </div>
             }

@@ -11,12 +11,14 @@ async function getOnRampTransactions() {
       userId: Number(session?.user?.id),
     },
   });
-  return txns.map((t) => ({
-    time: t.startTime,
-    amount: t.amount,
-    status: t.status,
-    provider: t.provider,
-  }));
+  return txns.map(
+    (t: { startTime: any; amount: any; status: any; provider: any }) => ({
+      time: t.startTime,
+      amount: t.amount,
+      status: t.status,
+      provider: t.provider,
+    })
+  );
 }
 
 async function getP2pTransactions() {
@@ -26,12 +28,14 @@ async function getP2pTransactions() {
       fromUserId: Number(session?.user?.id),
     },
   });
-  return p2p.map((t) => ({
-    time: t.timestamp,
-    amount: t.amount,
-    receiver: t.toUserId,
-    sender: t.fromUserId,
-  }));
+  return p2p.map(
+    (t: { timestamp: any; amount: any; toUserId: any; fromUserId: any }) => ({
+      time: t.timestamp,
+      amount: t.amount,
+      receiver: t.toUserId,
+      sender: t.fromUserId,
+    })
+  );
 }
 
 export default async function () {
