@@ -24,7 +24,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile.user
           push: true
-          tags: dholuvishnu917/web-app:latest # Replace with your Docker Hub username and repository
+          tags: dholuvishnu917/paytm:latest # Replace with your Docker Hub username and repository
 
       - name: Verify Pushed Image
-        run: docker pull dholuvishnu917/web-app:latest # Replace with your Docker Hub username and repository
+        run: docker pull dholuvishnu917/paytm:latest # Replace with your Docker Hub username and repository
